@@ -1,0 +1,35 @@
+<!-- <div class="container myDiv">
+  <h1>Movies for B2B</h1>
+  <input type="text" id="name" class="form-control" (keyup)="findMovie($event)">
+</div>
+<div class="container">
+    <div class="row">
+        <app-movie-display *ngIf="currentMovie"  [currentMovie]="currentMovie"></app-movie-display>
+    </div>
+    <button *ngIf="currentMovie" mat-raised-button (click)="addToList()" color="primary">Add to list</button>
+</div> -->
+
+<br>
+<button (click)="add()" mat-raised-button	 matTooltip="New book">add new book</button>
+
+<br>
+<h1>My list:</h1>
+<mat-toolbar>
+        <button  mat-raised-button (click)="showAll()" color="primary">All</button>
+        <span class="spacer"></span>
+        <button  mat-raised-button (click)="showChoosed('regular')" color="primary">Regular</button>
+        <span class="spacer"></span>
+        <button  mat-raised-button (click)="showChoosed('important')" color="primary">Important</button>
+        <span class="spacer"></span>
+        <button  mat-raised-button (click)="showChoosed('very important')" color="primary">Very important</button>    
+    </mat-toolbar>
+<h2 *ngIf="tasks.length<1">No tasks </h2>
+<div class="container">
+    <div class="row">
+       <app-task-display *ngFor="let task of tasks; let ind = index" 
+                         [currentTask]="task" [ind]="ind" (del)="del($event)" (end)="end($event)" (edit)="edit($event)">
+       </app-task-display>  
+    </div>
+</div>
+
+    

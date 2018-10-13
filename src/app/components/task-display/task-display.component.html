@@ -1,0 +1,35 @@
+
+<div class="container" >
+    <div class="row">
+        <div [ngStyle]="{'background-color':expired == true ? 'red' : '' }" class="thumbnail caption">
+            <a href="#" (click)="showDetail()" matTooltip="Show details">
+          <mat-toolbar color="primary">
+           <mat-toolbar-row>
+            <span>{{currentTask.title}}</span>
+            <span class="spacer"></span>
+            <span class="show">{{currentTask.rate}}</span>
+           </mat-toolbar-row>
+          </mat-toolbar>
+          </a>
+          <mat-card class="example-card" *ngIf="detail">
+          <mat-card-header>
+           <mat-card-title><h4>Description: {{currentTask.description}}</h4></mat-card-title>
+           <mat-card-title><h4>Deadline: {{currentTask.deadLine}}</h4></mat-card-title>
+           <mat-card-subtitle *ngIf="currentTask.finishDay"><h3>Finished: {{currentTask.finishDay}}</h3></mat-card-subtitle>
+
+          </mat-card-header>
+
+          <mat-card-actions *ngIf="ind!=null">
+            <i class="material-icons" (click)="delete()" matTooltip="Delete">delete</i>
+            <span class="spacer"></span>
+            <i class="material-icons" (click)="editTask(currentTask)" matTooltip="Edit">edit</i>
+            <span class="spacer"></span>
+            <i class="material-icons" (click)="finish()" matTooltip="Finish">done</i>
+          </mat-card-actions>
+          </mat-card>
+       </div>
+    </div>
+
+</div>
+
+   

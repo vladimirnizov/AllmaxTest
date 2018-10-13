@@ -1,0 +1,25 @@
+<form [formGroup] = "form">
+    <mat-form-field>
+      <input type="text" matInput formControlName="title" placeholder="Give a new Title:">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input type="text" matInput formControlName="description" placeholder="Description:">
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-select formControlName="rate" placeholder="Rate:">
+    <mat-option *ngFor="let rate of rates" [value]="rate.value">
+      {{rate.value}}
+    </mat-option>
+  </mat-select>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput [matDatepicker]="datepicker" formControlName="deadLine">
+      <mat-datepicker-toggle [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker></mat-datepicker>
+    </mat-form-field>
+    <div>
+    <button mat-button mat-dialog-close color="primary">Cancel</button>
+    <button [disabled]="form.invalid" mat-button (click)="save()" color="primary">Save</button>
+    </div>
+  </form>
